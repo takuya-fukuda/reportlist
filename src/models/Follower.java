@@ -11,27 +11,19 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-@Table(name = "employees")
+@Table(name = "followers")
 @NamedQueries({
     @NamedQuery(
-            name = "getAllEmployees",
-            query = "SELECT e FROM Employee AS e ORDER BY e.id DESC"
+            name = "getAllFollowers",
+            query = "SELECT e FROM Follower AS e ORDER BY e.id DESC"
             ),
     @NamedQuery(
-            name = "getEmployeesCount",
-            query = "SELECT COUNT(e) FROM Employee AS e"
+            name = "getFollowersCount",
+            query = "SELECT COUNT(e) FROM Follower AS e"
             ),
-    @NamedQuery(
-            name = "checkRegisteredCode",
-            query = "SELECT COUNT(e) FROM Employee AS e WHERE e.code = :code"
-            ),
-    @NamedQuery(
-            name = "checkLoginCodeAndPassword",
-            query = "SELECT e FROM Employee AS e WHERE e.delete_flag = 0 AND e.code = :code AND e.password = :pass"
-            )
 })
 @Entity
-public class Employee {
+public class Follower {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -123,5 +115,6 @@ public class Employee {
     public void setDelete_flag(Integer delete_flag) {
         this.delete_flag = delete_flag;
     }
+
 
 }
