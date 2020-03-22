@@ -11,15 +11,20 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+
 @Table(name = "employees")
 @NamedQueries({
     @NamedQuery(
             name = "getAllEmployees",
-            query = "SELECT e FROM Employee AS e ORDER BY e.id DESC"
+            query = "SELECT e FROM Employee AS e ORDER BY e.id ASC"
             ),
     @NamedQuery(
             name = "getEmployeesCount",
             query = "SELECT COUNT(e) FROM Employee AS e"
+            ),
+    @NamedQuery(
+            name = "getEmployeesSeach",
+            query = "SELECT e FROM Employee AS e WHERE e.code = :code"
             ),
     @NamedQuery(
             name = "checkRegisteredCode",
@@ -38,6 +43,7 @@ public class Employee {
 
 
     private Integer id;
+
 
     @Column(name = "code", nullable = false, unique = true)
     private String code;
@@ -59,6 +65,11 @@ public class Employee {
 
     @Column(name = "delete_flag", nullable = false)
     private Integer delete_flag;
+
+    @Column(name = "follow_flag", nullable = false)
+    private Integer follow_flag;
+
+
 
     public Integer getId() {
         return id;
@@ -124,4 +135,17 @@ public class Employee {
         this.delete_flag = delete_flag;
     }
 
+    public Integer getFollow_flag() {
+        return follow_flag;
+    }
+
+    public void setFollow_flag(Integer follow_flag) {
+        this.follow_flag = follow_flag;
+    }
+
+
+
 }
+
+
+

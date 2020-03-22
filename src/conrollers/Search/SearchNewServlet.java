@@ -1,4 +1,4 @@
-package controllers.employees;
+package conrollers.Search;
 
 import java.io.IOException;
 
@@ -12,16 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import models.Employee;
 
 /**
- * Servlet implementation class EmployeesNewServlet
+ * Servlet implementation class SearchNewServlet
  */
-@WebServlet("/employees/new")
-public class EmployeesNewServlet extends HttpServlet {
+@WebServlet("/SearchNewServlet")
+public class SearchNewServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EmployeesNewServlet() {
+    public SearchNewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,7 +34,7 @@ public class EmployeesNewServlet extends HttpServlet {
         request.setAttribute("employee", new Employee());
 
 
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employees/new.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employees/new1.jsp");
         rd.forward(request, response);
     }
 

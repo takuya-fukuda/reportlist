@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
      */
     // ログイン処理を実行
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-     // 認証結果を格納する変数
+        // 認証結果を格納する変数
         Boolean check_result = false;
 
         String code = request.getParameter("code");
