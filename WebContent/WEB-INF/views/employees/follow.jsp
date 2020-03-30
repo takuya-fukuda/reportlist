@@ -18,7 +18,9 @@
 
                     <tr class="row${status.count % 2}">
                         <td><c:out value="${follower.id}" /></td>
+                        <td><c:out value="${follower.name}" /></td>
                     </tr>
+                </c:forEach>
 
             </tbody>
         </table>

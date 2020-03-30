@@ -30,12 +30,8 @@ import javax.persistence.Table;
             ),//おそらく重複したときに
     @NamedQuery(
             name = "getFollowers1",
-            query = "SELECT f FROM Follower AS f WHERE f.employee = :employee_id"
-            ),//おそらく重複したときに
-
-
-
-
+            query = "SELECT f.follower FROM Follower AS f WHERE f.employee = :employee_id"
+            ),
 
 })
 @Entity

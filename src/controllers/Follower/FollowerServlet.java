@@ -62,7 +62,7 @@ public class FollowerServlet extends HttpServlet {
         em.getTransaction().begin();
         em.persist(f);
         em.getTransaction().commit();
-        List<Follower> followers = em.createNamedQuery("getFollowers1", Follower.class)
+        List<Employee> followers = em.createNamedQuery("getFollowers1", Employee.class)
                 .setParameter("employee_id", e)
                 .getResultList();
         request.setAttribute("employees", followers);
@@ -71,7 +71,7 @@ public class FollowerServlet extends HttpServlet {
 
 
         // フォロー完了画面にフォワード
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employees/index.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employees/follow.jsp");
         rd.forward(request, response);
 
 
